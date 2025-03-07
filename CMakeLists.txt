@@ -12,7 +12,7 @@ endif()
 project ("RayTraceWKND")
 
 # Add source to this project's executable.
-add_executable (RayTraceWKND "vec3.h" "vec3.cpp" "ray.h" "ray.cpp" "RayTraceWKND.cpp" "RayTraceWKND.h" "datatool.cpp" "datatool.h" "frostimg.cpp" "frostimg.h" "solid.h" "sphere.h" "plane.h" "plane.cpp" "sphere.cpp" "solidlist.h" "solidlist.cpp" "camera.h" "randengine.cpp" "material.h")
+add_executable (RayTraceWKND "vec3.h" "vec3.cpp" "ray.h" "ray.cpp" "RayTraceWKND.cpp" "RayTraceWKND.h" "datatool.cpp" "datatool.h" "frostimg.cpp" "frostimg.h" "solid.h" "sphere.h" "plane.h" "plane.cpp" "sphere.cpp" "solidlist.h" "solidlist.cpp" "camera.h" "randengine.cpp" "material.h" "dielectric.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET RayTraceWKND PROPERTY CXX_STANDARD 20)

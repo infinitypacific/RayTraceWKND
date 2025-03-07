@@ -24,7 +24,7 @@ vec3 color(const ray& r, solid& world, unsigned short depth) {
 	if (world.hit(r, 0.001, 10000, rec)) {
 		ray scatter;
 		vec3 atten;
-		if (depth < 50 && rec.mat->scatter(r, rec, atten, scatter)) {
+		if (depth < 10 && rec.mat->scatter(r, rec, atten, scatter)) {
 			return atten * color(scatter, world, depth + 1);
 		}
 		else {
@@ -43,8 +43,8 @@ int main()
 	solid* objs[4];
 	objs[0] = new sphere(vec3(0, 0, -1), 0.5, new lambert(vec3(0.8,0.1,0.1)));
 	objs[1] = new plane(vec3(0, -0.5, 0), vec3(0, -1, 0), new lambert(vec3(0.5, 0.5, 0.5)));
-	objs[2] = new sphere(vec3(-1, 0, -1), 0.5, new metal(vec3(0.1, 0.1, 0.7)));
-	objs[3] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.1, 0.7, 0.1)));
+	objs[2] = new sphere(vec3(-1, 0, -1), 0.5, new metal(vec3(0.1, 0.1, 0.7),0.4));
+	objs[3] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.1, 0.7, 0.1),0.01));
 	solid_list world(objs, 4);
 	camera cam;
 	for (int_fast32_t y = HEIGHT - 1;y >= 0;y--) {
