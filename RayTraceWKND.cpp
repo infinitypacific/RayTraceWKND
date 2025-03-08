@@ -18,13 +18,14 @@
 #define WIDTH 1280
 #define HEIGHT 720
 #define SAMPLES 500
+#define MAXDEPTH 10
 
 vec3 color(const ray& r, solid& world, uint_fast16_t depth) {
 	hit_rec rec;
 	if (world.hit(r, 0.001, 10000, rec)) {
 		ray scatter;
 		vec3 atten;
-		if (depth < 10 && rec.mat->scatter(r, rec, atten, scatter)) {
+		if (depth < MAXDEPTH && rec.mat->scatter(r, rec, atten, scatter)) {
 			return atten * color(scatter, world, depth + 1);
 		}
 		else {
