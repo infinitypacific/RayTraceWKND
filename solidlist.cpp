@@ -7,10 +7,10 @@ solid_list::~solid_list()
 	}
 }
 
-bool solid_list::hit(const ray& r, float min_p, float max_p, hit_rec& rec) const
+bool solid_list::hit(const ray& r, const float_t min_p, const float_t max_p, hit_rec& rec) const
 {
 	bool hit = false;
-	double closest = max_p;
+	float_t closest = max_p;
 	hit_rec temp_rec;
 	for (size_t i = 0;i < size;i++) {
 		if (list[i]->hit(r, min_p, max_p, temp_rec) && temp_rec.prog<closest) {

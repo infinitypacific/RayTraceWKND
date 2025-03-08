@@ -5,7 +5,7 @@
 class material;
 
 struct hit_rec {
-	float prog;
+	float_t prog;
 	vec3 p;
 	vec3 n;
 	material *mat;
@@ -13,5 +13,5 @@ struct hit_rec {
 
 class solid {
 public:
-	virtual bool hit(const ray& r, float min_p, float max_p, hit_rec& rec) const = 0;
+	virtual bool hit(const ray& r, const float_t min_p, const float_t max_p, hit_rec& rec) const = 0;
 };
